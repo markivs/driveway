@@ -33,7 +33,6 @@
                "id": "availability",
                "type": "heatmap",
                "source": "parking",
-               "maxzoom": 15,
                "paint": {
                   // Increase the heatmap weight based on frequency and property magnitude
                   "heatmap-weight": [
@@ -48,7 +47,7 @@
                      "interpolate", ["linear"],
                      ["zoom"],
                      0, 1,
-                     9, 3
+                     14, 3
                   ],
                   // Color ramp for heatmap.  Domain is 0 (low) to 1 (high).
                   // Begin color ramp at 0-stop with a 0-transparancy color
@@ -68,14 +67,14 @@
                      "interpolate", ["linear"],
                      ["zoom"],
                      0, 2,
-                     9, 20
+                     14, 20
                   ],
                   // Transition from heatmap to circle layer by zoom level
                   "heatmap-opacity": [
                      "interpolate", ["linear"],
                      ["zoom"],
                      7, 1,
-                     9, 0
+                     14, 0
                   ],  
                }
                
