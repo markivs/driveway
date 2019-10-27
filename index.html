@@ -105,7 +105,9 @@
 
             var coordinates = e.features[0].geometry.coordinates.slice();
             var description = "<dl><dt>"+e.features[0].properties.numberofspots+"</dt>"
-                            +"<dt>"+e.features[0].properties.timeavailable+"</dt></dl>";
+                            +"<dt>"+e.features[0].properties.timeavailable+"</dt>"
+                            +"<dt>"+e.features[0].properties.type+"</dt>"
+                            +"<dt>"+e.features[0].properties.instructions+"</dt></dl>";
 
             // Ensure that if the map is zoomed out such that multiple
             // copies of the feature are visible, the popup appears
