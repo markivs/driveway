@@ -9,6 +9,19 @@
       <style>
          body { margin:0; padding:0; }
          #map { position:absolute; top:0; bottom:0; width:100%; }
+         .mapboxgl-ctrl-geocoder {
+                 border: 0;
+                 border-radius: 0;
+                 position: relative;
+                 top: 0;
+                 width: 800px;
+                 margin-top: 0;
+               }
+
+         .mapboxgl-ctrl-geocoder > div {
+           min-width: 100%;
+           margin-left: 0;
+         }
       </style>
    </head>
    <body>
@@ -114,21 +127,7 @@
                              marker: false, // Do not use the default marker style
                              bbox: [-122.271266,37.864182,-122.240367,37.877157] // Set the bounding box coordinates
             });
-            <style>
-               .mapboxgl-ctrl-geocoder {
-                 border: 0;
-                 border-radius: 0;
-                 position: relative;
-                 top: 0;
-                 width: 800px;
-                 margin-top: 0;
-               }
 
-               .mapboxgl-ctrl-geocoder > div {
-                 min-width: 100%;
-                 margin-left: 0;
-               }
-            </style>
             map.addControl(geocoder, 'top-left');
 
 
