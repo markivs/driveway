@@ -11,9 +11,9 @@ var spots = {
         ]
       },
       "properties": {
-        "numberofspots": "1",
+        "numberofspots": "Spots Available: 1",
         "availability": "7", 
-        "timeavailable": "9AM-5PM",
+        "timeavailable": "Reserve 9AM-5PM",
         "type": "Driveway",
         "instructions": "'Enter on the right side of the building.'",
         "xl": "XL Vehicles OK?: Yes",
@@ -34,9 +34,9 @@ var spots = {
         ]
       },
       "properties": {
-        "numberofspots": "1",
+        "numberofspots": "Spots Available: 1",
         "availability": "7",
-        "timeavailable": "2AM-7AM",
+        "timeavailable": "Reserve 2AM-7AM",
         "type": "Driveway",
         "instructions": "'Enter slowly, as it is very narrow'",
         "xl": "XL Vehicles OK?: No",
@@ -57,9 +57,9 @@ var spots = {
         ]
       },
       "properties": {
-        "numberofspots": "3",
+        "numberofspots": "Spots Available: 3",
         "availability": "7",
-        "timeavailable": "1PM-2PM and 6PM-8PM",
+        "timeavailable": "Reserve 1PM-2PM or 6PM-8PM",
         "type": "Parking Garage",
         "instructions": "'Code is 42069.'",
         "xl": "XL Vehicles OK?: Yes",
@@ -80,9 +80,9 @@ var spots = {
         ]
       },
       "properties": {
-        "numberofspots": "2",
+        "numberofspots": "Spots Available: 2",
         "availability": "7",
-        "timeavailable": "6AM-9AM",
+        "timeavailable": "Reserve 6AM-9AM",
         "type": "Driveway",
         "instructions": "'Do a 180 e-brake in reverse.'",
         "xl": "XL Vehicles OK?: Yes",
@@ -103,9 +103,9 @@ var spots = {
         ]
       },
       "properties": {
-        "numberofspots": "4",
+        "numberofspots": "Spots Available: 4",
         "availability": "7",
-        "timeavailable": "1PM-2PM and 3PM-4PM and 5PM-6PM",
+        "timeavailable": "Reserve 1PM-2PM, 3PM-4PM, or 5PM-6PM",
         "type": "Parking Garage",
         "instructions": "'Watch out for my doggy!'",
         "xl": "XL Vehicles OK?: No",
@@ -126,9 +126,9 @@ var spots = {
         ]
       },
       "properties": {
-        "numberofspots": "1",
+        "numberofspots": "Spots Available: 1",
         "availability": "7",
-        "timeavailable": "9AM-5PM",
+        "timeavailable": "Reserve 9AM-5PM",
         "type": "Driveway",
         "instructions": "'Hope you like ramps.'",
         "xl": "XL Vehicles OK?: No",
@@ -149,9 +149,9 @@ var spots = {
         ]
       },
       "properties": {
-        "numberofspots": "1",
+        "numberofspots": "Spots Available: 1",
         "availability": "7",
-        "timeavailable": "2AM-7AM",
+        "timeavailable": "Reserve 2AM-7AM",
         "type": "Parking Garage",
         "instructions": "'Leave me a nice note ;)'",
         "xl": "XL Vehicles OK?: Yes",
@@ -172,9 +172,9 @@ var spots = {
         ]
       },
       "properties": {
-        "numberofspots": "2",
+        "numberofspots": "Spots Available: 2",
         "availability": "7",
-        "timeavailable": "1PM-2PM and 6PM-8PM",
+        "timeavailable": "Reserve 1PM-2PM or 6PM-8PM",
         "type": "Parking Garage",
         "instructions": "'No special instructions just wanted to say hi :)'",
         "xl": "XL Vehicles OK?: No",
@@ -195,9 +195,9 @@ var spots = {
         ]
       },
       "properties": {
-        "numberofspots": "5",
+        "numberofspots": "Spots Available: 5",
         "availability": "7",
-        "timeavailable": "6AM-9AM",
+        "timeavailable": "Reserve 6AM-9AM",
         "type": "Driveway",
         "instructions": "'Mow my lawn and feed my cat before you go.'",
         "xl": "XL Vehicles OK?: No",
@@ -218,9 +218,9 @@ var spots = {
         ]
       },
       "properties": {
-        "numberofspots": "3",
+        "numberofspots": "Spots Available: 3",
         "availability": "7",
-        "timeavailable": "1PM-2PM and 3PM-4PM and 5PM-6PM",
+        "timeavailable": "Reserve 1PM-2PM, 3PM-4PM, or 5PM-6PM",
         "type": "Driveway",
         "instructions": "'Park backwards only please.'",
         "xl": "XL Vehicles OK?: Yes",
