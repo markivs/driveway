@@ -19,6 +19,24 @@
           <div id='parking' class='parking'></div>
       </div>
       <div id='map'></div>
+      <style>
+         .sidebar {
+          position: absolute;
+          width: 25%;
+          height: 100%;
+          overflow: hidden;
+          border-right: 1px solid #fff;
+        }
+
+        .map {
+          border-left: 1px solid #fff;
+          position: absolute;
+          left: 25%;
+          width: 75%;
+          top: 0;
+          bottom: 0;
+        }
+      </style>
       <script>
          mapboxgl.accessToken = 'pk.eyJ1IjoidnNpZGRhbSIsImEiOiJjazI3dTVzbzUxNWowM250YzY3bDJ3MzQ3In0.YVLu3CvH_3bNvWdT_I40Lg';
          var map = new mapboxgl.Map({
