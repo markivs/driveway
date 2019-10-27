@@ -25,14 +25,14 @@
          var url = 'https://markivs.github.io/DrivewayData/data.json';
          map.on('load', function () {
             window.setInterval(function() {
-            map.getSource('drone').setData(url);
+            map.getSource('places').setData(url);
             }, 2000);
 
-            map.addSource('drone', { type: 'geojson', data: url });
+            map.addSource('places', { type: 'geojson', data: url });
             map.addLayer({
-               "id": "drone",
+               "id": "places",
                "type": "symbol",
-               "source": "drone",
+               "source": "places",
                "layout": {"icon-image": "car-15"}
             });
          });
