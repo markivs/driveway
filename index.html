@@ -402,7 +402,14 @@
             window.setInterval(function() {
             map.getSource('parking').setData(url);
             }, 5000);
+            var geocoder = new MapboxGeocoder({
+              accessToken: mapboxgl.accessToken, // Set the access token
+              mapboxgl: mapboxgl, // Set the mapbox-gl instance
+              marker: false, // Do not use the default marker style
+              bbox: [-77.210763, 38.803367, -76.853675, 39.052643] // Set the bounding box coordinates
+            });
 
+            map.addControl(geocoder, 'top-left');
             map.addSource('parking', { type: 'geojson', data: url });
             map.addLayer({
                "id": "availability",
@@ -477,16 +484,7 @@
                             +"<dt>"+e.features[0].properties.timeavailable+"</dt>"
                             +"<dt>"+e.features[0].properties.type+"</dt>"
                             +"<dt>"+e.features[0].properties.instructions+"</dt></dl>";
-            var geocoder = new MapboxGeocoder({
-              accessToken: mapboxgl.accessToken, // Set the access token
-              mapboxgl: mapboxgl, // Set the mapbox-gl instance
-              marker: false, // Do not use the default marker style
-              bbox: [-77.210763, 38.803367, -76.853675, 39.052643] // Set the bounding box coordinates
-            });
-
-            map.addControl(geocoder, 'top-left');
-
-
+        
             // Ensure that if the map is zoomed out such that multiple
             // copies of the feature are visible, the popup appears
             // over the copy being pointed to.
