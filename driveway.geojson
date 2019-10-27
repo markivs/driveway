@@ -12,6 +12,7 @@ var spots = {
       },
       "properties": {
         "numberofspots": "1",
+        "availability": "7", 
         "timeavailable": "9AM-5PM",
         "type": "Driveway",
         "instructions": "'Enter on the right side of the building.'",
@@ -34,6 +35,7 @@ var spots = {
       },
       "properties": {
         "numberofspots": "1",
+        "availability": "7",
         "timeavailable": "2AM-7AM",
         "type": "Driveway",
         "instructions": "'Enter slowly, as it is very narrow'",
@@ -56,6 +58,7 @@ var spots = {
       },
       "properties": {
         "numberofspots": "3",
+        "availability": "7",
         "timeavailable": "1PM-2PM and 6PM-8PM",
         "type": "Parking Garage",
         "instructions": "'Code is 42069.'",
@@ -78,6 +81,7 @@ var spots = {
       },
       "properties": {
         "numberofspots": "2",
+        "availability": "7",
         "timeavailable": "6AM-9AM",
         "type": "Driveway",
         "instructions": "'Do a 180 e-brake in reverse.'",
@@ -100,6 +104,7 @@ var spots = {
       },
       "properties": {
         "numberofspots": "4",
+        "availability": "7",
         "timeavailable": "1PM-2PM and 3PM-4PM and 5PM-6PM",
         "type": "Parking Garage",
         "instructions": "'Watch out for my doggy!'",
@@ -122,6 +127,7 @@ var spots = {
       },
       "properties": {
         "numberofspots": "1",
+        "availability": "7",
         "timeavailable": "9AM-5PM",
         "type": "Driveway",
         "instructions": "'Hope you like ramps.'",
@@ -144,6 +150,7 @@ var spots = {
       },
       "properties": {
         "numberofspots": "1",
+        "availability": "7",
         "timeavailable": "2AM-7AM",
         "type": "Parking Garage",
         "instructions": "'Leave me a nice note ;)'",
@@ -166,6 +173,7 @@ var spots = {
       },
       "properties": {
         "numberofspots": "2",
+        "availability": "7",
         "timeavailable": "1PM-2PM and 6PM-8PM",
         "type": "Parking Garage",
         "instructions": "'No special instructions just wanted to say hi :)'",
@@ -188,6 +196,7 @@ var spots = {
       },
       "properties": {
         "numberofspots": "5",
+        "availability": "7",
         "timeavailable": "6AM-9AM",
         "type": "Driveway",
         "instructions": "'Mow my lawn and feed my cat before you go.'",
@@ -210,34 +219,12 @@ var spots = {
       },
       "properties": {
         "numberofspots": "3",
+        "availability": "7",
         "timeavailable": "1PM-2PM and 3PM-4PM and 5PM-6PM",
         "type": "Driveway",
         "instructions": "'Park backwards only please.'",
         "xl": "XL Vehicles OK?: Yes",
         "address": "2116 Allston Way",
-        "city": "Berkeley",
-        "country": "United States",
-        "postalCode": "94704",
-        "state": "CA"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-           -122.251743,
-           37.865656
-        ]
-      },
-      "properties": {
-        "phoneFormatted": "(202) 234-7336",
-        "numberofspots": "1",
-        "timeavailable": "9AM-5PM",
-        "type": "Driveway",
-        "instructions": "'Enter on the right side of the building.'",
-        "xl": "XL Vehicles OK?: Yes",
-        "address": "2514 Piedmont Ave",
         "city": "Berkeley",
         "country": "United States",
         "postalCode": "94704",
