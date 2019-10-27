@@ -403,10 +403,10 @@
             map.getSource('parking').setData(url);
             }, 5000);
             var geocoder = new MapboxGeocoder({
-              accessToken: mapboxgl.accessToken, // Set the access token
-              mapboxgl: mapboxgl, // Set the mapbox-gl instance
-              marker: false, // Do not use the default marker style
-              bbox: [-77.210763, 38.803367, -76.853675, 39.052643] // Set the bounding box coordinates
+              accessToken: mapboxgl.accessToken,
+              mapboxgl: mapboxgl,
+              marker: false,
+              bbox: [-77.210763, 38.803367, -76.853675, 39.052643]
             });
 
             map.addControl(geocoder, 'top-left');
@@ -416,24 +416,18 @@
                "type": "heatmap",
                "source": "parking",
                "paint": {
-                  // Increase the heatmap weight based on frequency and property magnitude
                   "heatmap-weight": [
                      "interpolate", ["linear"],
                      ["get", "availability"],
                      0, 0,
                      10, 1
                   ],
-                  // Increase the heatmap color weight weight by zoom level
-                  // heatmap-intensity is a multiplier on top of heatmap-weight
                   "heatmap-intensity": [
                      "interpolate", ["linear"],
                      ["zoom"],
                      0, 1,
                      14, 3
                   ],
-                  // Color ramp for heatmap.  Domain is 0 (low) to 1 (high).
-                  // Begin color ramp at 0-stop with a 0-transparancy color
-                  // to create a blur-like effect.
                   "heatmap-color": [
                      "interpolate", ["linear"],
                      ["heatmap-density"],
@@ -444,14 +438,12 @@
                      0.8, "rgb(200,153,40)",
                      1, "rgb(252,181,20)"
                   ],
-                  // Adjust the heatmap radius by zoom level
                   "heatmap-radius": [
                      "interpolate", ["linear"],
                      ["zoom"],
                      0, 2,
                      14, 20
                   ],
-                  // Transition from heatmap to circle layer by zoom level
                   "heatmap-opacity": [
                      "interpolate", ["linear"],
                      ["zoom"],
@@ -476,7 +468,6 @@
          });
 
          map.on('mouseenter', 'parking', function (e) {
-            // Change the cursor style as a UI indicator.
             map.getCanvas().style.cursor = 'pointer';
 
             var coordinates = e.features[0].geometry.coordinates.slice();
@@ -484,16 +475,11 @@
                             +"<dt>"+e.features[0].properties.timeavailable+"</dt>"
                             +"<dt>"+e.features[0].properties.type+"</dt>"
                             +"<dt>"+e.features[0].properties.instructions+"</dt></dl>";
-        
-            // Ensure that if the map is zoomed out such that multiple
-            // copies of the feature are visible, the popup appears
-            // over the copy being pointed to.
+
             while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
             }
 
-            // Populate the popup and set its coordinates
-            // based on the feature found.
             popup.setLngLat(coordinates)
                .setHTML(description)
                .addTo(map);
@@ -508,32 +494,22 @@
               // Iterate through the list of stores
               for (i = 0; i < data.features.length; i++) {
                 var currentFeature = data.features[i];
-                // Shorten data.feature.properties to `prop` so we're not
-                // writing this long form over and over again.
                 var prop = currentFeature.properties;
-                // Select the listing container in the HTML and append a div
-                // with the class 'item' for each store
                 var listings = document.getElementById('listings');
                 var listing = listings.appendChild(document.createElement('div'));
                 listing.className = 'item';
                 listing.id = 'listing-' + i;
 
-                // Create a new link with the class 'title' for each store
-                // and fill it with the store address
+                
                 var link = listing.appendChild(document.createElement('a'));
                 link.href = '#';
                 link.className = 'title';
                 link.dataPosition = i;
                 link.innerHTML = prop.address;
                 link.addEventListener('click', function(e) {
-                 // Update the currentFeature to the store associated with the clicked link
-                 var clickedListing = data.features[this.dataPosition];
-                 // 1. Fly to the point associated with the clicked link
-                 map.flyTo({center: clickedListing.geometry.coordinates, zoom: 15});
-                });
-
-                // Create a new div with the class 'details' for each store
-                // and fill it with the city and phone number
+                    var clickedListing = data.features[this.dataPosition];
+                    map.flyTo({center: clickedListing.geometry.coordinates, zoom: 15});
+                 });
                 var details = listing.appendChild(document.createElement('div'));
                 details.innerHTML = prop.city;
                 if (prop.phone) {
