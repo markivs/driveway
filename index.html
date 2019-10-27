@@ -2,7 +2,7 @@
 <html>
    <head>
       <meta charset='utf-8' />
-      <title>Add live realtime data</title>
+      <title>Driveway</title>
       <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
       <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
       <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
@@ -17,7 +17,7 @@
          mapboxgl.accessToken = 'pk.eyJ1IjoidnNpZGRhbSIsImEiOiJjazI3dTVzbzUxNWowM250YzY3bDJ3MzQ3In0.YVLu3CvH_3bNvWdT_I40Lg';
          var map = new mapboxgl.Map({
             container: 'map',
-            style: 'mapbox://styles/mapbox/streets-v11',
+            style: 'mapbox://styles/mapbox/dark-v10',
             center: [-122.256970, 37.868686],
             zoom: 14
          });
@@ -25,18 +25,98 @@
          var url = 'https://markivs.github.io/DrivewayData/data.json';
          map.on('load', function () {
             window.setInterval(function() {
-            map.getSource('drone').setData(url);
+            map.getSource('parking').setData(url);
             }, 2000);
 
-            map.addSource('drone', { type: 'geojson', data: url });
+            map.addSource('parking', { type: 'geojson', data: url });
             map.addLayer({
-               "id": "drone",
-               "type": "symbol",
-               "source": "drone",
-               "layout": {
-                  "icon-image": "car-15"
+               "id": "availability",
+               "type": "heatmap",
+               "source": "parking",
+               "paint": {
+                  // Increase the heatmap weight based on frequency and property magnitude
+                  "heatmap-weight": [
+                     "interpolate", ["linear"],
+                     ["get", "availability"],
+                     0, 0,
+                     10, 1
+                  ],
+                  // Increase the heatmap color weight weight by zoom level
+                  // heatmap-intensity is a multiplier on top of heatmap-weight
+                  "heatmap-intensity": [
+                     "interpolate", ["linear"],
+                     ["zoom"],
+                     0, 1,
+                     14, 3
+                  ],
+                  // Color ramp for heatmap.  Domain is 0 (low) to 1 (high).
+                  // Begin color ramp at 0-stop with a 0-transparancy color
+                  // to create a blur-like effect.
+                  "heatmap-color": [
+                     "interpolate", ["linear"],
+                     ["heatmap-density"],
+                     0, "rgba(33,102,172,0)",
+                     0.2, "rgb(103,169,207)",
+                     0.4, "rgb(209,229,240)",
+                     0.6, "rgb(253,219,199)",
+                     0.8, "rgb(239,138,98)",
+                     1, "rgb(178,24,43)"
+                  ],
+                  // Adjust the heatmap radius by zoom level
+                  "heatmap-radius": [
+                     "interpolate", ["linear"],
+                     ["zoom"],
+                     0, 2,
+                     14, 20
+                  ],
+                  // Transition from heatmap to circle layer by zoom level
+                  "heatmap-opacity": [
+                     "interpolate", ["linear"],
+                     ["zoom"],
+                     7, 1,
+                     14, 0
+                  ],  
                }
+               
+            }, 'waterway-label');
+            
+            map.addLayer({
+               "id": "parking",
+               "type": "symbol",
+               "source": "parking",
+               "layout": {"icon-image": "car-11"}
             });
+            
+         });
+         var popup = new mapboxgl.Popup({
+            closeButton: false,
+            closeOnClick: false
+         });
+
+         map.on('mouseenter', 'parking', function (e) {
+            // Change the cursor style as a UI indicator.
+            map.getCanvas().style.cursor = 'pointer';
+
+            var coordinates = e.features[0].geometry.coordinates.slice();
+            var description = e.features[0].properties.timeavailable;
+
+            // Ensure that if the map is zoomed out such that multiple
+            // copies of the feature are visible, the popup appears
+            // over the copy being pointed to.
+            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+               coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+            }
+
+            // Populate the popup and set its coordinates
+            // based on the feature found.
+            popup.setLngLat(coordinates)
+               .setHTML(description)
+               .addTo(map);
+         });
+
+         map.on('mouseleave', 'parking', function () {
+            map.getCanvas().style.cursor = '';
+            popup.remove();
          });
       </script>
    </body>
