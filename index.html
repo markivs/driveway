@@ -8,22 +8,51 @@
       <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
       <style>
          body {
-           background: #404040;
-           color: #f8f8f8;
-           font: 500 20px/26px 'Helvetica Neue', Helvetica, Arial, Sans-serif;
+           color: #404040;
+           font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
            margin: 0;
            padding: 0;
            -webkit-font-smoothing: antialiased;
          }
 
-         /* The page is split between map and sidebar - the sidebar gets 1/3, map
-         gets 2/3 of the page. You can adjust this to your personal liking. */
+         * {
+           -webkit-box-sizing: border-box;
+           -moz-box-sizing: border-box;
+           box-sizing: border-box;
+         }
+
+         h1 {
+           font-size: 22px;
+           margin: 0;
+           font-weight: 400;
+           line-height: 20px;
+           padding: 20px 2px;
+         }
+
+         a {
+           color: #404040;
+           text-decoration: none;
+         }
+
+         a:hover {
+           color: #101010;
+         }
+
          .sidebar {
+           position: absolute;
            width: 33.3333%;
+           height: 100%;
+           top: 0;
+           left: 0;
+           overflow: hidden;
+           border-right: 1px solid rgba(0, 0, 0, 0.25);
+         }
+
+         .pad2 {
+           padding: 20px;
          }
 
          .map {
-           border-left: 1px solid #fff;
            position: absolute;
            left: 33.3333%;
            width: 66.6666%;
@@ -31,16 +60,78 @@
            bottom: 0;
          }
 
-         .pad2 {
-           padding: 20px;
-           -webkit-box-sizing: border-box;
-           -moz-box-sizing: border-box;
-           box-sizing: border-box;
+         .heading {
+           background: #fff;
+           border-bottom: 1px solid #eee;
+           height: 60px;
+           line-height: 60px;
+           padding: 0 10px;
+         }
+
+         .listings {
+           height: 100%;
+           overflow: auto;
+           padding-bottom: 60px;
+         }
+
+         .listings .item {
+           display: block;
+           border-bottom: 1px solid #eee;
+           padding: 10px;
+           text-decoration: none;
+         }
+
+         .listings .item:last-child { border-bottom: none; }
+
+         .listings .item .title {
+           display: block;
+           color: #00853e;
+           font-weight: 700;
+         }
+
+         .listings .item .title small { font-weight: 400; }
+
+         .listings .item.active .title,
+         .listings .item .title:hover { color: #8cc63f; }
+
+         .listings .item.active {
+           background-color: #f8f8f8;
+         }
+
+         ::-webkit-scrollbar {
+           width: 3px;
+           height: 3px;
+           border-left: 0;
+           background: rgba(0, 0, 0, 0.1);
+         }
+
+         ::-webkit-scrollbar-track {
+           background: none;
+         }
+
+         ::-webkit-scrollbar-thumb {
+           background: #00853e;
+           border-radius: 0;
+         }
+
+         .clearfix { display: block; }
+
+         .clearfix::after {
+           content: '.';
+           display: block;
+           height: 0;
+           clear: both;
+           visibility: hidden;
          }
       </style>
    </head>
    <body>
-      <div class='sidebar pad2'>Nearby</div>
+      <div class='sidebar'>
+         <div class='heading'>
+            <h1>Nearby</h1>
+         </div>
+         <div id='listings' class='listings'></div>
+      </div>
       <div id='map' class='map pad2'>Map</div>
       <script>
          mapboxgl.accessToken = 'pk.eyJ1IjoidnNpZGRhbSIsImEiOiJjazI3dTVzbzUxNWowM250YzY3bDJ3MzQ3In0.YVLu3CvH_3bNvWdT_I40Lg';
@@ -116,6 +207,38 @@
                "layout": {"icon-image": "car-11"
                           "icon-allow-overlap": true}
             });
+            
+            function buildLocationList(data) {
+              // Iterate through the list of stores
+              for (i = 0; i < data.features.length; i++) {
+                var currentFeature = data.features[i];
+                // Shorten data.feature.properties to `prop` so we're not
+                // writing this long form over and over again.
+                var prop = currentFeature.properties;
+                // Select the listing container in the HTML and append a div
+                // with the class 'item' for each store
+                var listings = document.getElementById('listings');
+                var listing = listings.appendChild(document.createElement('div'));
+                listing.className = 'item';
+                listing.id = 'listing-' + i;
+
+                // Create a new link with the class 'title' for each store
+                // and fill it with the store address
+                var link = listing.appendChild(document.createElement('a'));
+                link.href = '#';
+                link.className = 'title';
+                link.dataPosition = i;
+                link.innerHTML = prop.address;
+
+                // Create a new div with the class 'details' for each store
+                // and fill it with the city and phone number
+                var details = listing.appendChild(document.createElement('div'));
+                details.innerHTML = prop.city;
+                if (prop.phone) {
+                  details.innerHTML += ' · ' + prop.phoneFormatted;
+                }
+              }
+            }
             
          });
          var popup = new mapboxgl.Popup({
