@@ -134,7 +134,6 @@
       </div>
       <div id='map' class='map pad2'></div>
       <script>
-         import * as MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
          mapboxgl.accessToken = 'pk.eyJ1IjoidnNpZGRhbSIsImEiOiJjazI3dTVzbzUxNWowM250YzY3bDJ3MzQ3In0.YVLu3CvH_3bNvWdT_I40Lg';
          var map = new mapboxgl.Map({
             container: 'map',
@@ -255,12 +254,6 @@
                             +"<dt>"+e.features[0].properties.timeavailable+"</dt>"
                             +"<dt>"+e.features[0].properties.type+"</dt>"
                             +"<dt>"+e.features[0].properties.instructions+"</dt></dl>";
-            var geocoder = new MapboxGeocoder({
-                             accessToken: mapboxgl.accessToken, // Set the access token
-                             mapboxgl: mapboxgl, // Set the mapbox-gl instance
-                             marker: false, // Do not use the default marker style
-                             bbox: [-122.271266,37.864182,-122.240367,37.877157] // Set the bounding box coordinates
-            });
 
             map.addControl(geocoder, 'top-left');
 
