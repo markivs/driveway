@@ -126,13 +126,8 @@
       </style>
    </head>
    <body>
-      <div class='sidebar'>
-          <div class='heading'>
-                <h1>Nearby</h1>
-          </div>
-          <div id='parking' class='parking'></div>
-      </div>
-      <div id='map'></div>
+      <div class='sidebar pad2'>Nearby</div>
+      <div id='map' class='map pad2'>Map</div>
       <script>
          mapboxgl.accessToken = 'pk.eyJ1IjoidnNpZGRhbSIsImEiOiJjazI3dTVzbzUxNWowM250YzY3bDJ3MzQ3In0.YVLu3CvH_3bNvWdT_I40Lg';
          var map = new mapboxgl.Map({
