@@ -1,0 +1,248 @@
+var spots = {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+           -122.251743,
+           37.865656
+        ]
+      },
+      "properties": {
+        "numberofspots": "1",
+        "timeavailable": "9AM-5PM",
+        "type": "Driveway",
+        "instructions": "'Enter on the right side of the building.'",
+        "xl": "XL Vehicles OK?: Yes",
+        "address": "2514 Piedmont Ave",
+        "city": "Berkeley",
+        "country": "United States",
+        "postalCode": "94704",
+        "state": "CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+           -122.262630,
+           37.861020
+        ]
+      },
+      "properties": {
+        "numberofspots": "1",
+        "timeavailable": "2AM-7AM",
+        "type": "Driveway",
+        "instructions": "'Enter slowly, as it is very narrow'",
+        "xl": "XL Vehicles OK?: No",
+        "address": "2244 Derby St.",
+        "city": "Berkeley",
+        "country": "United States",
+        "postalCode": "94704",
+        "state": "CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+           -122.270202,
+           37.863934
+        ]
+      },
+      "properties": {
+        "numberofspots": "3",
+        "timeavailable": "1PM-2PM and 6PM-8PM",
+        "type": "Parking Garage",
+        "instructions": "'Code is 42069.'",
+        "xl": "XL Vehicles OK?: Yes",
+        "address": "1947 Dwight Way",
+        "city": "Berkeley",
+        "country": "United States",
+        "postalCode": "94704",
+        "state": "CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+           -122.264852,
+           37.865675
+        ]
+      },
+      "properties": {
+        "numberofspots": "2",
+        "timeavailable": "6AM-9AM",
+        "type": "Driveway",
+        "instructions": "'Do a 180 e-brake in reverse.'",
+        "xl": "XL Vehicles OK?: Yes",
+        "address": "2211 Haste St.",
+        "city": "Berkeley",
+        "country": "United States",
+        "postalCode": "94704",
+        "state": "CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -122.263318,
+            37.867782
+        ]
+      },
+      "properties": {
+        "numberofspots": "4",
+        "timeavailable": "1PM-2PM and 3PM-4PM and 5PM-6PM",
+        "type": "Parking Garage",
+        "instructions": "'Watch out for my doggy!'",
+        "xl": "XL Vehicles OK?: No",
+        "address": "2301 Durant Ave",
+        "city": "Berkeley",
+        "country": "United States",
+        "postalCode": "94704",
+        "state": "CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+           -122.260642,
+           37.866273
+        ]
+      },
+      "properties": {
+        "numberofspots": "1",
+        "timeavailable": "9AM-5PM",
+        "type": "Driveway",
+        "instructions": "'Hope you like ramps.'",
+        "xl": "XL Vehicles OK?: No",
+        "address": "2407 Dana St.",
+        "city": "Berkeley",
+        "country": "United States",
+        "postalCode": "94704",
+        "state": "CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+           -122.250700,
+           37.866439
+        ]
+      },
+      "properties": {
+        "numberofspots": "1",
+        "timeavailable": "2AM-7AM",
+        "type": "Parking Garage",
+        "instructions": "'Leave me a nice note ;)'",
+        "xl": "XL Vehicles OK?: Yes",
+        "address": "2438 Warring St.",
+        "city": "Berkeley",
+        "country": "United States",
+        "postalCode": "94704",
+        "state": "CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+           -122.255655,
+           37.867334
+        ]
+      },
+      "properties": {
+        "numberofspots": "2",
+        "timeavailable": "1PM-2PM and 6PM-8PM",
+        "type": "Parking Garage",
+        "instructions": "'No special instructions just wanted to say hi :)'",
+        "xl": "XL Vehicles OK?: No",
+        "address": "2610 Channing Way",
+        "city": "Berkeley",
+        "country": "United States",
+        "postalCode": "94704",
+        "state": "CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+           -122.253015,
+           37.867263
+        ]
+      },
+      "properties": {
+        "numberofspots": "5",
+        "timeavailable": "6AM-9AM",
+        "type": "Driveway",
+        "instructions": "'Mow my lawn and feed my cat before you go.'",
+        "xl": "XL Vehicles OK?: No",
+        "address": "2728 Channing Way",
+        "city": "Berkeley",
+        "country": "United States",
+        "postalCode": "94704",
+        "state": "CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+           -122.267027,
+           37.869461
+        ]
+      },
+      "properties": {
+        "numberofspots": "3",
+        "timeavailable": "1PM-2PM and 3PM-4PM and 5PM-6PM",
+        "type": "Driveway",
+        "instructions": "'Park backwards only please.'",
+        "xl": "XL Vehicles OK?: Yes",
+        "address": "2116 Allston Way",
+        "city": "Berkeley",
+        "country": "United States",
+        "postalCode": "94704",
+        "state": "CA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+           -122.251743,
+           37.865656
+        ]
+      },
+      "properties": {
+        "phoneFormatted": "(202) 234-7336",
+        "numberofspots": "1",
+        "timeavailable": "9AM-5PM",
+        "type": "Driveway",
+        "instructions": "'Enter on the right side of the building.'",
+        "xl": "XL Vehicles OK?: Yes",
+        "address": "2514 Piedmont Ave",
+        "city": "Berkeley",
+        "country": "United States",
+        "postalCode": "94704",
+        "state": "CA"
+      }
+    }
+  ]
+};
