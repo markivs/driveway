@@ -1,0 +1,34 @@
+{"geometry": {
+    "type": "Point", 
+    "coordinates": [134.30939540193035, -30.17339419214251]}, 
+    "type": "Feature", 
+    "properties": {}, 
+    "name": "Europe"
+}
+
+{"geometry": {
+    "type": "Point", 
+    "coordinates": [37.868686, -122.256970]}, 
+    "type": "Feature", 
+    "properties": {},
+    "name": "Cal"
+}
+
+{"geometry": {
+    "type": "Point", 
+    "coordinates": [134.30939540193035, -30.17339419214251]}, 
+    "type": "Feature", 
+    "properties": {}
+}
+
+{"geometry": {
+    "type": "Point", 
+    "coordinates": [134.30939540193035, -30.17339419214251]}, 
+    "type": "Feature", "properties": {}
+}
+
+{"geometry": {
+    "type": "Point", 
+    "coordinates": [134.30939540193035, -30.17339419214251]}, 
+    "type": "Feature", "properties": {}
+}
