@@ -479,6 +479,12 @@
             map.getCanvas().style.cursor = '';
             popup.remove();
          });
+         link.addEventListener('click', function(e) {
+           // Update the currentFeature to the store associated with the clicked link
+           var clickedListing = data.features[this.dataPosition];
+           // 1. Fly to the point associated with the clicked link
+           map.flyTo({center: clickedListing.geometry.coordinates, zoom: 15);
+         });
          function buildLocationList(data) {
               // Iterate through the list of stores
               for (i = 0; i < data.features.length; i++) {
