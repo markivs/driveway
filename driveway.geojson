@@ -1,4 +1,4 @@
-var spots = {
+{
   "type": "FeatureCollection",
   "features": [
     {
@@ -232,4 +232,4 @@ var spots = {
       }
     }
   ]
-};
+}
