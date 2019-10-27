@@ -98,8 +98,7 @@
             map.getCanvas().style.cursor = 'pointer';
 
             var coordinates = e.features[0].geometry.coordinates.slice();
-            var description = e.features[0].properties.timeavailable
-                            + e.features[0].properties.type;
+            var description = e.features[0].properties.timeavailable;
 
             // Ensure that if the map is zoomed out such that multiple
             // copies of the feature are visible, the popup appears
