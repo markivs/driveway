@@ -28,7 +28,7 @@
             zoom: 14
          });
           
-         var url = 'https://markivs.github.io/DrivewayData/data.json';
+         var url = 'https://markivs.github.io/driveway/driveway.geojson';
          map.on('load', function () {
             window.setInterval(function() {
             map.getSource('parking').setData(url);
@@ -104,7 +104,8 @@
             map.getCanvas().style.cursor = 'pointer';
 
             var coordinates = e.features[0].geometry.coordinates.slice();
-            var description = e.features[0].properties.timeavailable;
+            var description = str.concat(e.features[0].properties.timeavailable,
+                                         e.features[0].properties.;
 
             // Ensure that if the map is zoomed out such that multiple
             // copies of the feature are visible, the popup appears
