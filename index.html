@@ -108,6 +108,29 @@
                             +"<dt>"+e.features[0].properties.timeavailable+"</dt>"
                             +"<dt>"+e.features[0].properties.type+"</dt>"
                             +"<dt>"+e.features[0].properties.instructions+"</dt></dl>";
+            var geocoder = new MapboxGeocoder({
+                             accessToken: mapboxgl.accessToken, // Set the access token
+                             mapboxgl: mapboxgl, // Set the mapbox-gl instance
+                             marker: false, // Do not use the default marker style
+                             bbox: [-122.271266,37.864182,-122.240367,37.877157] // Set the bounding box coordinates
+            });
+            <style>
+               .mapboxgl-ctrl-geocoder {
+                 border: 0;
+                 border-radius: 0;
+                 position: relative;
+                 top: 0;
+                 width: 800px;
+                 margin-top: 0;
+               }
+
+               .mapboxgl-ctrl-geocoder > div {
+                 min-width: 100%;
+                 margin-left: 0;
+               }
+            </style>
+            map.addControl(geocoder, 'top-left');
+
 
             // Ensure that if the map is zoomed out such that multiple
             // copies of the feature are visible, the popup appears
