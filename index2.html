@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!-- TODO: Add sidebar to map, and make function to iterate over geojson -->
+<html>
+   <head>
+      <meta charset='utf-8' />
+      <title>Add live realtime data</title>
+      <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+      <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+      <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
+      <style>
+         body { margin:0; padding:0; }
+         #map { position:absolute; top:0; bottom:0; width:90%; }
+      </style>
+   </head>
+   <body>
+      <div class='sidebar'>
+          <div class='heading'>
+                <h1>Parking Spots</h1>
+          </div>
+          <div id='parking' class='parking'></div>
+        </div>
+      <div id='map' class='map pad2'>Map</div>
+      <style>
+        body {
+          background:#404040;
+          color: #f8f8f8;
+          font: 400 20px/26px 'Helvetica Neue', Helvetica, Arial, Sans-serif;
+          margin: 0;
+          padding: 0;
+          -webkit-font-smoothing: antialiased;
+        }
+
+        h1 {
+            font-size: 20 px;
+            margin: 0;
+            font-weight: 400;
+            line-height: 20px;
+            padding: 20px 2px;
+        }
+        
+        a {
+            color: #404040;
+            text-decoration: none;
+        }
+
+        .sidebar {
+          position: absolute;
+          width: 25%;
+          height: 100%;
+          overflow: hidden;
+          border-right: 1px solid #fff;
+        }
+
+        .map {
+          border-left: 1px solid #fff;
+          position: absolute;
+          left: 25%;
+          width: 75%;
+          top: 0;
+          bottom: 0;
+        }
+
+        .pad2 {
+          padding: 20px;
+          /* -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box; */
+        }
+
+        .heading {
+            background: #fff;
+            border-bottom: 1 px solid #eee;
+            height: 60 px;
+            line-height: 60 px;
+            padding: 0 10px;
+        }
+
+        .parking {
+            height: 100%;
+            overflow: auto;
+            padding-bottom: 50px;
+        }
+
+        .parking .item {
+            display: block;
+            border-bottom: 1px solid #eee;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        .parking .item:last-child { 
+            border-bottom: none;
+        }
+
+        .parking .item .title {
+            display: block;
+            color: red;
+            font-weight: 500;
+        }
+
+        ::-webkit-scrollbar {
+            width: 3px;
+            height: 3px;
+            border-left: 0;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        ::-webkit-scrollbar-track {
+            background: none;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #00853e;
+            border-radius: 0;
+        }
+
+      </style>
+      <script>
+         mapboxgl.accessToken = 'pk.eyJ1IjoidnNpZGRhbSIsImEiOiJjazI3dTVzbzUxNWowM250YzY3bDJ3MzQ3In0.YVLu3CvH_3bNvWdT_I40Lg';
+         var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [-122.256970, 37.868686],
+            zoom: 14
+         });
+
+         map.on('load', function() {
+           map.addLayer({
+             id: 'locations',
+             type: 'symbol',
+             // Adds the GEOJSON source here
+             source: {
+               type: 'geojson',
+               data: spots
+             },
+             layout: {
+                  'icon-image': 'car-15',
+                  'icon-allow-overlap': true
+               }
+           })
+         });
+
+        // adds stuff from the geojson file
+         function addParkingSpots(data) {
+           for (i = 0; i < data.length; i++) {
+             var currentFeatures = data[i];
+           }
+         }
+      </script> 
+   </body>
+</html>
