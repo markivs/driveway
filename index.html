@@ -7,7 +7,17 @@
       <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
       <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
       <style>
-         body { margin:0; padding:0; }
+         body {
+           background: #404040;
+           color: #f8f8f8;
+           font: 500 20px/26px 'Helvetica Neue', Helvetica, Arial, Sans-serif;
+           margin: 0;
+           padding: 0;
+           -webkit-font-smoothing: antialiased;
+         }
+         .sidebar {
+            width: 33.3333%;
+         }
          #map { position:absolute; top:0; bottom:0; width:100%; }
          .mapboxgl-ctrl-geocoder {
                  border: 0;
